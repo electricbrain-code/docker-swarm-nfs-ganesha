@@ -37,6 +37,7 @@ that is to be shared among other nodes in the swarm.
 
 Running the container(s):
 
+```
 #!/bin/bash
 
 docker run \
@@ -60,6 +61,7 @@ docker run \
   --volume      /docker.local/nfs-ganesha/data/etc/ganesha:/etc/ganesha \
   --volume      /docker.local/nfs-ganesha/data/mysharefolder:/data \
     registry:5000/nfs-ganesha:3.5-u20-1.0
+```
 
 Example of the nfs-ganesha configuration file i
 (note the kerberos setting - i.e. it is disabled! super simple):
@@ -68,15 +70,16 @@ Example config files now in ganesha.conf and vfs.conf. They were causing all sor
 text formatting issues in here.
 
 Testing your nfs-ganesha server:
+```
 mount -t nfs host6:/data /mnt
 cd /mnt
 ls
+```
 
 Gottchas:
-1) Note the use of --tmpfs. This puts the named directories into the hosts RAM.
-   It can run out and kill your server dead. It you expect super high usage don't
-   use this option.
-2) As noted there is no Kerberos running. All server must use the same userid:groupid
-   numbers. This is done here with the aid of an LDAP server (recommended).
+
+* Note the use of --tmpfs. This puts the named directories into the hosts RAM. It can run out and kill your server dead. It you expect super high usage don't use this option.
+* As noted there is no Kerberos running. All server must use the same userid:groupid numbers. This is done here with the aid of an LDAP server (recommended).
+```
 
 
