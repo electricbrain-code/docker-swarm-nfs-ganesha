@@ -66,3 +66,17 @@ Example of the nfs-ganesha configuration file i
 
 Example config files now in ganesha.conf and vfs.conf. They were causing all sorts of
 text formatting issues in here.
+
+Testing your nfs-ganesha server:
+mount -t nfs host6:/data /mnt
+cd /mnt
+ls
+
+Gottchas:
+1) Note the use of --tmpfs. This puts the named directories into the hosts RAM.
+   It can run out and kill your server dead. It you expect super high usage don't
+   use this option.
+2) As noted there is no Kerberos running. All server must use the same userid:groupid
+   numbers. This is done here with the aid of an LDAP server (recommended).
+
+
