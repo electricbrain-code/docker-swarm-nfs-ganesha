@@ -58,16 +58,14 @@ docker run \
   --tmpfs       /tmp \
   --tmpfs       /run/dbus \
   --stop-signal SIGRTMIN+3 \
-  --volume      /docker.local/nfs-ganesha/data/etc/ganesha:/etc/ganesha \
-  --volume      /docker.local/nfs-ganesha/data/mysharefolder:/data \
+  --volume      /mysharefolder:/data \
     registry:5000/nfs-ganesha:3.5-u20-1.0
 ```
 
-Example of the nfs-ganesha configuration file i
+Example of the nfs-ganesha configuration file
 (note the kerberos setting - i.e. it is disabled! super simple):
 
-Example config files now in ganesha.conf and vfs.conf. They were causing all sorts of
-text formatting issues in here.
+Example config files now in ganesha.conf and vfs.conf. (Now in the images in /etc/ganesha)
 
 Testing your nfs-ganesha server:
 ```

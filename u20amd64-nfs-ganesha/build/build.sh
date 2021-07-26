@@ -45,7 +45,9 @@ run DEBIAN_FRONTEND=noninteractive \
   && chown messagebus:messagebus /var/run/dbus
 
 # Add startup script
-COPY start.sh /
+COPY start.sh     /
+COPY ganesha.conf /etc/ganesha
+COPY vfs.conf     /etc/ganesha
 
 # NFS ports and portmapper
 EXPOSE 2049 38465-38467 662 111/udp 111
